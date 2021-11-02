@@ -1,0 +1,39 @@
+<!--
+Author: Travis Rosen
+Date: 10/29/2021
+Title: signin.component.html
+Description: HTML page for user log in page
+-->
+
+<div fxLayout= "column">
+  <div fxFlex *ngIf="error" class="message-error">
+    {{ error }}
+  </div>
+
+  <mat-card fxFlex>
+    <mat-card-title>
+      Employee Login
+    </mat-card-title>
+
+    <mat-card-subtitle>
+      Please enter a valid Employee ID.
+    </mat-card-subtitle>
+
+    <form [formGroup]="form" (ngSubmit)="login(); form.reset();">
+      <mat-card-content>
+        <mat-form-field>
+
+          <input matInput
+          [formControl]="form.controls['empId']"
+          placeholder="Employee ID" />
+        </mat-form-field>
+      </mat-card-content>
+
+      <mat-card-actions algin="end">
+
+        <button type="submit" fxFlex mat-raised-button color="primary" [disabled]="!form.valid">Login</button>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+</div>
+
