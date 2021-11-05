@@ -1,0 +1,16 @@
+/*
+Author: Travis Rosen
+Name: signin.component.css
+Date: 11/4/2021
+Description: Styling for sign in page
+*/
+
+.signin-container {
+  width: 35%;
+  margin: 15%;
+  padding: 10px;
+}
+
+.signin-container > mat-card-title, mat-card-subtitle {
+  text-align: center;
+}

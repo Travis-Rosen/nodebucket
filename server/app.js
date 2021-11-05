@@ -43,7 +43,7 @@ mongoose.connect(conn, {
 //Start of API section
 
 //findEmployeeById
-app.get('api/employees/:empId', async(req, res) =>{
+app.get('/api/employees/:empId', async(req, res) =>{
   try {
     Employee.findOne({ 'empId': req.params.empId }, function(err, employee) {
       if (err) {
@@ -63,6 +63,10 @@ app.get('api/employees/:empId', async(req, res) =>{
     })
   }
 })
+
+//findAllTasks:
+
+
 
 //Creating the server
 http.createServer(app).listen(port, function() {
