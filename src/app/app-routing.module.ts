@@ -12,6 +12,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './shared/auth.guard';
 import { AuthLayoutComponent } from './shared/auth-layout/auth-layout.component';
 import { SigninComponent } from './pages/signin/signin.component';
+import { ContactComponent } from './pages/contact/contact.component';
 
 
 //Configuring routes for sign in page and home
@@ -26,8 +27,8 @@ const routes: Routes = [
         canActivate: [AuthGuard]
       },
       {
-        path: 'home',
-        component: HomeComponent,
+        path: 'contact',
+        component: ContactComponent,
         canActivate: [AuthGuard]
       }
     ]

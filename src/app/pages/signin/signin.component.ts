@@ -24,8 +24,7 @@ export class SigninComponent implements OnInit {
   error: string;
 
 
-  constructor( private router: Router, private cookieService: CookieService,
-     private fb: FormBuilder, private http: HttpClient) { }
+  constructor( private router: Router, private cookieService: CookieService, private fb: FormBuilder, private http: HttpClient) { }
 
   ngOnInit(): void {
     //Validating that empID is a numerical value
@@ -35,20 +34,22 @@ export class SigninComponent implements OnInit {
   }
 
   //Create login function
-  login(){
+  login(): void
+  {
     const empId = this.form.controls['empId'].value;
-    this.http.get('/api/employees/' + empId).subscribe(res =>
-      {
+    this.http.get('/api/employees/' + empId).subscribe(res =>{
         if (res)
         {
+          //Adding employee information to session storage.
+          console.log(res);
+          sessionStorage.setItem('name', `${res['firstName']} ${res['lastName']}`);
           this.cookieService.set('session_user', empId, 1);
           this.router.navigate(['/']);
         }
-        else {
+        else
+        {
           this.error = 'The employee ID you entered is invalid, please try again';
         }
-      })
-    }
-
-
+    })
+  }
 }

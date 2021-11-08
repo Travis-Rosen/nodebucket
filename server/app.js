@@ -12,7 +12,7 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const path = require('path');
 const mongoose = require('mongoose');
-const Employee = require('./models/employee'); //Employee-model from model folder
+const EmployeeAPI = require('./routes/employee-routes'); //Employee-routes from routes folder
 
 //App configurations
 let app = express();
@@ -40,31 +40,9 @@ mongoose.connect(conn, {
   console.log(`MongoDB Error: ${err.message}`)
 });
 
-//Start of API section
 
-//findEmployeeById
-app.get('/api/employees/:empId', async(req, res) =>{
-  try {
-    Employee.findOne({ 'empId': req.params.empId }, function(err, employee) {
-      if (err) {
-        console.log(err);
-        res.status(500).send({
-          'message': 'Internal server error.'
-        })
-      } else {
-        console.log(employee);
-        res.json(employee);
-      }
-    })
-  } catch (e) {
-    console.log(e);
-    res.status(500).send({
-      'message': 'Internal server error.'
-    })
-  }
-})
 
-//findAllTasks:
+app.use('/api/employees', EmployeeAPI);
 
 
 

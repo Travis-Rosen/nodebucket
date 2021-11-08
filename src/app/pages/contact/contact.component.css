@@ -1,0 +1,16 @@
+/*
+Author: Travis rosen
+Name: contact.component.css
+Date: 11/7/2021
+Description: Styling for contact page
+*/
+
+.contact-container {
+  margin: 30px auto;
+  width: 50%;
+}
+
+.title {
+  text-align: center;
+  font-weight: lighter;
+}

@@ -1,3 +1,10 @@
+<!--
+  Author: Travis Rosen
+  Name: Base-layout.component.html
+  Date: 11/7/2021
+  Description: HTML page for base layout
+-->
+
 <div fxLayout="column">
 
     <!-- navigation -->
@@ -7,21 +14,34 @@
         <div class="navbar-container">
           <!-- logo -->
           <button class="logo" routerLink="/" mat-button>nodebucket</button>
-  
           <button class="navbar-link" routerLink="/" mat-button>Home</button>
-          <button class="navbar-link" mat-button>About</button>
+          <button class="navbar-link" routerLink="/contact" mat-button>Contact</button>
         </div>
-  
+        <div fxFlex></div>
+        <div *ngIf="isLoggedIn">
+          <button mat-icon-button [matMenuTriggerFor]="profileMenu" aria-label="User profile menu">
+            <mat-icon>perm_identity</mat-icon>
+          </button>
+          <mat-menu #profileMenu>
+            <p style="padding: 10px;">Signed in as {{ name }}</p>
+            <mat-divider></mat-divider>
+            <button mat-menu-item (click)="signOut()">
+              <mat-icon>logout</mat-icon>
+              <span>Sign Out</span>
+            </button>
+          </mat-menu>
+        </div>
+
       </mat-toolbar>
     </nav>
-  
+
     <!-- main content -->
     <div fxFlex>
       <main class="main-content" fxFlex="100%;">
         <router-outlet></router-outlet>
       </main>
     </div>
-  
+
     <!-- footer -->
     <div fxFlex>
       <footer class="footer">
@@ -32,6 +52,5 @@
         </mat-toolbar>
       </footer>
     </div>
-  
+
   </div>
-  

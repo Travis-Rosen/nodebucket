@@ -5,12 +5,31 @@ Date: 11/4/2021
 Description: Styling for sign in page
 */
 
-.signin-container {
-  width: 35%;
-  margin: 15%;
+.message-error {
+  margin: 20px o;
   padding: 10px;
+  color: #d9000c;
+  background-color: #ffd2d2;
+  font-size: 20px;
+  font-style: bold;
 }
 
-.signin-container > mat-card-title, mat-card-subtitle {
+.log-in-container {
+  width: 40%;
+  margin: 100px auto;
+}
+
+.mat-card-title {
+  text-align: center;
+  font-size: 35px;
+}
+
+.form {
+  width: 100%;
+}
+
+.subtitle {
   text-align: center;
 }
+
+
