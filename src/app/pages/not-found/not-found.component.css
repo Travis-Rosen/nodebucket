@@ -1,0 +1,33 @@
+/*
+Author: Travis Rosen
+Name: not-found.component.css
+Date: 11/14/2021
+Description: Styling for notfound  page
+*/
+
+.image-container {
+  display: flex;
+  justify-content: center;
+}
+
+.not-found-container {
+  margin: 30px auto;
+  width: 50%;
+}
+
+.title {
+  text-align: center;
+  font-weight: lighter;
+  color: #572991;
+}
+
+img {
+  width: 200%;
+  margin-left: 28%;
+}
+
+button {
+  margin-left: 42%;
+}
+
+

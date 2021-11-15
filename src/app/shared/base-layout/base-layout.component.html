@@ -13,21 +13,22 @@
         <!-- navbar container -->
         <div class="navbar-container">
           <!-- logo -->
-          <button class="logo" routerLink="/" mat-button>nodebucket</button>
-          <button class="navbar-link" routerLink="/" mat-button>Home</button>
-          <button class="navbar-link" routerLink="/contact" mat-button>Contact</button>
+          <button class="logo menu" routerLink="/" mat-button>nodebucket</button>
+          <button class="navbar-link menu" routerLink="/" mat-button>Home</button>
+          <button class="navbar-link menu" routerLink="/contact" mat-button>Contact</button>
+          <button class="navbar-link menu" routerLink="/about" mat-button>About</button>
         </div>
         <div fxFlex></div>
         <div *ngIf="isLoggedIn">
           <button mat-icon-button [matMenuTriggerFor]="profileMenu" aria-label="User profile menu">
-            <mat-icon>perm_identity</mat-icon>
+            <mat-icon class="menu">perm_identity</mat-icon>
           </button>
           <mat-menu #profileMenu>
-            <p style="padding: 10px;">Signed in as {{ name }}</p>
+            <p style="padding: 10px;" class="menu">Signed in as {{ name }}</p>
             <mat-divider></mat-divider>
-            <button mat-menu-item (click)="signOut()">
-              <mat-icon>logout</mat-icon>
-              <span>Sign Out</span>
+            <button mat-menu-item (click)="signOut()" class="menu">
+              <mat-icon class="menu">logout</mat-icon>
+              <span class="menu">Sign Out</span>
             </button>
           </mat-menu>
         </div>

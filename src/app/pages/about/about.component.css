@@ -1,0 +1,38 @@
+/*
+Author: Travis Rosen
+Name: about.component.css
+Date: 11/4/2021
+Description: Styling for about page
+*/
+
+.about-container {
+  margin: 30px auto;
+  width: 50%;
+}
+
+.title {
+  text-align: center;
+  font-weight: lighter;
+  color: #572991;
+}
+
+p {
+  text-align: left;
+  color: #572991;
+}
+
+mat-card-title {
+  text-align: center;
+  color: #572991;
+  font-weight: lighter;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+}
+
+img {
+  width: 60%;
+  border-radius: 50px;
+}

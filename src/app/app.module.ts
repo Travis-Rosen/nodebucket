@@ -19,8 +19,10 @@ import { BaseLayoutComponent } from './shared/base-layout/base-layout.component'
 import { AuthLayoutComponent } from './shared/auth-layout/auth-layout.component';
 import { SigninComponent } from './pages/signin/signin.component';
 import { ContactComponent } from './pages/contact/contact.component';
+import { AboutComponent } from './pages/about/about.component';
 import { CreateTaskDialogComponent } from './shared/create-task-dialog/create-task-dialog.component';
-//Material design imports
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+//Material design imports / styling
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
@@ -31,8 +33,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDividerModule } from '@angular/material/divider';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 //CookieService
 import { CookieService } from 'ngx-cookie-service';
+
+
 
 @NgModule({
   declarations: [
@@ -42,7 +47,10 @@ import { CookieService } from 'ngx-cookie-service';
     AuthLayoutComponent,
     SigninComponent,
     ContactComponent,
-    CreateTaskDialogComponent
+    CreateTaskDialogComponent,
+    AboutComponent,
+    NotFoundComponent
+
   ],
   imports: [
     BrowserModule,
@@ -61,6 +69,7 @@ import { CookieService } from 'ngx-cookie-service';
     MatDialogModule,
     MatMenuModule,
     MatDividerModule,
+    DragDropModule
   ],
   providers: [],
   bootstrap: [AppComponent]

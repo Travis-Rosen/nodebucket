@@ -13,4 +13,13 @@ Description: Styling for contact page
 .title {
   text-align: center;
   font-weight: lighter;
+  color: #572991;
+}
+
+p {
+  text-align: center;
+}
+
+mat-card-title {
+  text-align: center;
 }

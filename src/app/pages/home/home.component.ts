@@ -13,6 +13,7 @@ import { TaskService } from '../../shared/services/task.service';
 import { CookieService } from 'ngx-cookie-service';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateTaskDialogComponent } from '../../shared/create-task-dialog/create-task-dialog.component';
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-home',
@@ -76,5 +77,48 @@ export class HomeComponent implements OnInit {
         })
       }
     })
+  }
+
+  drop(event: CdkDragDrop<any[]>) {
+    if(event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+      console.log(`Reordered the existing list of task items`);
+      this.updateTaskList(this.empId, this.todo, this.done);
+
+    } else {
+      transferArrayItem(event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex);
+      console.log(`Moved task item to the container`);
+      this.updateTaskList(this.empId, this.todo, this.done);
+    }
+  }
+
+  updateTaskList(empId: number, todo: Item[], done: Item[]): void {
+    this.taskService.updateTask(empId, todo, done).subscribe(res => {
+      this.employee = res.data;
+    }, err => {
+      console.log(err)
+    }, () => {
+      this.todo = this.employee.todo;
+      this.done = this.employee.done;
+    })
+  }
+
+  deleteTask(taskId: string) {
+    if(confirm('Are you sure you want to delete this task?')) {
+      if (taskId) {
+        console.log(`Task Item: ${taskId} was removed`);
+        this.taskService.deleteTask(this.empId, taskId).subscribe(res => {
+          this.employee = res.data;
+        }, err => {
+          console.log(err);
+        }, () => {
+          this.todo = this.employee.todo;
+          this.done = this.employee.done;
+        })
+      }
+    }
   }
 }

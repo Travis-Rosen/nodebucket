@@ -12,6 +12,12 @@
   .title {
     text-align: center;
     font-weight: lighter;
+    color: #572991;
+  }
+
+  mat-card-title {
+    text-align: center;
+    font-weight: lighter;
   }
 
   .task-container {
@@ -28,7 +34,7 @@
     display: block;
   }
 
-  .task-card {
+  .task-card-todo {
     cursor: move;
     padding: 20px 10px;
     border-bottom: solid 1px #ccc;
@@ -39,3 +45,34 @@
     justify-content: space-between;
     align-items: center;
   }
+
+  .task-card-done {
+    cursor: move;
+    padding: 20px 10px;
+    border-bottom: solid 1px #ccc;
+    min-height: 68px;
+    height: 68px;
+    font-size: 14px;
+    box-sizing: border-box;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .done-card {
+    background-image: linear-gradient(to bottom right, #81c784, #388e3c )
+  }
+
+  .todo-card {
+    background-image: linear-gradient(to bottom right, #ffee58, #fbc02d);
+  }
+
+  .delete-button {
+    color: #e57373;
+  }
+
+  .task-text {
+    color: #572991;
+    font-weight: 450;
+  }
+
+
