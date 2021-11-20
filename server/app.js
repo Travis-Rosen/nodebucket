@@ -23,7 +23,7 @@ app.use(express.static(path.join(__dirname, '../dist/nodebucket')));
 app.use('/', express.static(path.join(__dirname, '../dist/nodebucket')));
 
 //Server port
-const port = 3000;
+
 
 // database connection string
 const conn = 'mongodb+srv://tmrosen:tmrosen@nodebucket.uq7sn.mongodb.net/nodebucket01?retryWrites=true&w=majority';
@@ -47,6 +47,6 @@ app.use('/api/employees', EmployeeAPI);
 
 
 //Creating the server
-http.createServer(app).listen(port, function() {
-  console.log(`Application started and listening on port: ${port}`)
-});
+app.listen(process.env.PORT || 3000, function(){
+  console.log("Server listening on port %d in %s mode", this.address().port, app.settings.env)
+})
