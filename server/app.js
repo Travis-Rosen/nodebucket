@@ -48,5 +48,5 @@ app.use('/api/employees', EmployeeAPI);
 
 //Creating the server
 app.listen(process.env.PORT || 3000, function(){
-  console.log("Server listening on port %d in %s mode", this.address().port, app.settings.env)
+  console.log("Application is running at localhost:" + app.get('port'));
 })
